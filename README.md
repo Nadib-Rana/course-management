@@ -1,3 +1,4 @@
+```
 course-management/
 │
 ├── config/
@@ -31,3 +32,4 @@ course-management/
 |__ app.js                     # api collection 
 ├── server.js                 # Entry point
 └── README.md
+```
