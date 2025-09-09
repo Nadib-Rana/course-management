@@ -5,16 +5,17 @@ import {
   getAllCourses,
   getCourseById
 } from "../controllers/courseController.js";
+
 import { authenticate, authorizeAdmin } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-// Admin Routes
-router.post("/", authenticate, authorizeAdmin, createCourse);
-router.delete("/:id", authenticate, authorizeAdmin, deleteCourse);
+router.route("/")
+  .post(authenticate, authorizeAdmin, createCourse) // Admin Power
+  .get(getAllCourses);
 
-// Public Routes
-router.get("/", getAllCourses);
-router.get("/:id", getCourseById);
+router.route("/:id")
+  .delete(authenticate, authorizeAdmin, deleteCourse) // Admin Power
+  .get(getCourseById);
 
 export default router;

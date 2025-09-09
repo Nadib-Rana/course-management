@@ -5,9 +5,8 @@ import { authenticate } from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
 // Purchase a course
-router.post("/", authenticate, purchaseCourse);
-
-// View purchased courses
-router.get("/", authenticate, getPurchasedCourses);
+router.route("/")
+    .post(authenticate, purchaseCourse)
+    .get(authenticate, getPurchasedCourses);
 
 export default router;

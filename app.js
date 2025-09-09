@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.send("Course Management API is running...");
 });
 
-// add Routers
+// Routers
 app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/purchases", purchaseRoutes);
